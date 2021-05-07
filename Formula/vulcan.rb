@@ -11,19 +11,19 @@ class Vulcan < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-macOS-x86_64.tar.gz"
-    sha256 "c85a187e5f71b5d8185c43187d3223b511dbc6740f81ab0988c019fb894550c1"
+    sha256 "a12967a76174dfc485e5c3d10e33a92923fe05715d91ef65f5f8f8ab50be2f56"
   end
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-macOS-arm64.tar.gz"
-    sha256 "b66d7846a8b9faa63d3f816893cb1f3b5880ef8b0ae0b4d0c339fbb695f88a56"
+    sha256 "10fd0a539955590411d0baf3ff52b6a3d06b48862e0cbe563be5827a2ea2ec6b"
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-Linux-x86_64.tar.gz"
-    sha256 "30cfe8ef012f8da4e1da5c9863068a152b260315a2e050230bd687b3437b0998"
+    sha256 "32a915988fadc0840a2fd2ade74f0910e2c907162e49d7639bb19e417b9e0978"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-Linux-arm64.tar.gz"
-    sha256 "ced0f774ccf39b44426b0b10baa6cb2361190c7e14472b55b42de6bbf025f810"
+    sha256 "16f801327756b2c5170b634c2c27395ff01541263f486891fb6e7b1f3ef241db"
   end
 
   depends_on "go"
