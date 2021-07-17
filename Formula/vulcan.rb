@@ -5,25 +5,30 @@
 class Vulcan < Formula
   desc "Scanfold tool to create projects based on templates."
   homepage "https://github.com/caioeverest/vulcan"
-  version "0.0.1"
+  version "0.0.2"
   license "GPL-3.0"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-macOS-x86_64.tar.gz"
-    sha256 "a12967a76174dfc485e5c3d10e33a92923fe05715d91ef65f5f8f8ab50be2f56"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/caioeverest/vulcan/releases/download/0.0.2/vulcan_0.0.2-macOS-x86_64.tar.gz"
+      sha256 "72281aaa510811c05b0bad8cb4e7c534afc26a43dbcee942cb613273aa180164"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/caioeverest/vulcan/releases/download/0.0.2/vulcan_0.0.2-macOS-arm64.tar.gz"
+      sha256 "9be57338c2f6d202f11816bb7675720f2471675e0c1778def0a0b8ba2c535d61"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-macOS-arm64.tar.gz"
-    sha256 "10fd0a539955590411d0baf3ff52b6a3d06b48862e0cbe563be5827a2ea2ec6b"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-Linux-x86_64.tar.gz"
-    sha256 "32a915988fadc0840a2fd2ade74f0910e2c907162e49d7639bb19e417b9e0978"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/caioeverest/vulcan/releases/download/0.0.1/vulcan_0.0.1-Linux-arm64.tar.gz"
-    sha256 "16f801327756b2c5170b634c2c27395ff01541263f486891fb6e7b1f3ef241db"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/caioeverest/vulcan/releases/download/0.0.2/vulcan_0.0.2-Linux-x86_64.tar.gz"
+      sha256 "a00e0049c49c0d920ad76bcc795ed2c4926077c38541de4e1f76b5509da4fc73"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/caioeverest/vulcan/releases/download/0.0.2/vulcan_0.0.2-Linux-arm64.tar.gz"
+      sha256 "5917e45792f523bc734354ea4f74a35fefc7417187a50a66837d6f327e926155"
+    end
   end
 
   depends_on "go"
